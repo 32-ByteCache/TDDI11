@@ -135,6 +135,8 @@ int main(int argc, char *argv[])
   ClearScreen(0x07);
   SetCursorPosition(0, 0);
 
+  Milliseconds();
+
   for (i = 0; i < 6; ++i)
   {
     PutString("Test : ");
@@ -157,6 +159,8 @@ int main(int argc, char *argv[])
     
     PutString("\r\n");
   }
+  PutString("Time: ");
+  PutUnsigned(Milliseconds(), 10, 10);
 
   return 0;
 }
