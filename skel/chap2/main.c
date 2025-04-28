@@ -1,8 +1,12 @@
 #include <libepc.h>
+#include <stdio.h>
 
 void llmultiply(unsigned long long int l1,
                 unsigned long long int l2,
                 unsigned char *result);
+
+
+
 
 struct test_case {
   unsigned long long int a;
@@ -39,6 +43,90 @@ void PutUnsignedLongLong(unsigned long long int* ulli)
   PutUnsigned(uli[0], 16, 8); 
 }
 
+void checkCarry(unsigned long int* ptr, int pos, unsigned long long b) {
+  if ((ptr[pos] + b) < ptr[pos]) {
+    ptr[pos+1] += 1;
+    PutString("carry!");
+  }
+}
+
+
+
+void cllmultiply(unsigned long long int l1, unsigned long long int l2, unsigned char *result) {
+  unsigned long long int mult_total;
+  unsigned long int mult_h;
+  unsigned long int mult_l;
+
+  unsigned long long int a_low = (unsigned long int)l1;
+  unsigned long long int a_high = (l1 >> 32);
+
+  unsigned long long int b_low = (unsigned long int)l2; 
+  unsigned long long int b_high = (l2 >> 32);
+
+  unsigned long int *res_ptr = result;
+
+  res_ptr[0] = 0;
+  res_ptr[1] = 0;
+  res_ptr[2] = 0;
+  res_ptr[3] = 0;
+
+
+
+
+  mult_total = a_low * b_low;
+  mult_l = (unsigned long int)mult_total; 
+  mult_h = (mult_total >> 32);
+
+
+  
+
+  res_ptr[0] = mult_l;
+  res_ptr[1] = mult_h;
+
+  mult_total = a_low * b_high;
+  mult_l = (unsigned long int)mult_total; 
+  mult_h = (mult_total >> 32);
+
+  
+  if ((res_ptr[1] + mult_l) < res_ptr[1]) {
+    res_ptr[2] += 1;
+  }
+   
+
+
+  res_ptr[1] += mult_l;
+  res_ptr[2] += mult_h;
+
+  mult_total = a_high * b_low;
+  mult_l = (unsigned long int)mult_total; 
+  mult_h = (mult_total >> 32);
+
+  if ((res_ptr[1] + mult_l) < res_ptr[1]) {
+    res_ptr[2] += 1;
+  }
+
+  if ((res_ptr[2] + mult_h) < res_ptr[2]) {
+    res_ptr[3] += 1;
+  }
+
+  res_ptr[1] += mult_l;
+  res_ptr[2] += mult_h;
+
+  mult_total = a_high * b_high;
+  mult_l = (unsigned long int)mult_total; 
+  mult_h = (mult_total >> 32);
+
+  if ((res_ptr[2] + mult_l) < res_ptr[2]) {
+      res_ptr[3] += 1;
+  }
+    
+  res_ptr[2] += mult_l;
+  res_ptr[3] += mult_h;
+
+
+  
+};
+
 int main(int argc, char *argv[])
 {
   unsigned char result[16];
@@ -60,7 +148,7 @@ int main(int argc, char *argv[])
     PutUnsignedLongLong(&cases[i].rl);
     PutString("\r\n");
     
-    llmultiply(cases[i].a, cases[i].b, result);
+    cllmultiply(cases[i].a, cases[i].b, result);
     
     PutString("Result ");
     PutUnsignedLongLong((unsigned long long int*)&result[8]);
