@@ -20,9 +20,25 @@ THR_PORT	EQU	BASE_PORT
 
 		GLOBAL	SerialPut
 
-SerialPut:	; <your code here>	; (1) Wait for THRE = 1
-		; <your code here>	; (2) Output character to UART
-		; <your code here>	; (3) Return to caller
+SerialPut:	
+		push EAX
+		push EBP
+		mov EBP, ESP
+	
+	CHECK_THRE:
+		mov EAX, [LSR_PORT] ; Read LSR port
+
+		shr EAX, 5
+		and EAX, 1
+
+		jnz CHECK_THRE ; Jump to start if THRE not set
+
+		mov EAX, [EBP + 8] ; load ch into EAX
+		mov [THR_PORT], EAX
+	
+		pop EBP
+		pop EAX
+		ret
 
 ; ---------------------------------------------------------------------
 ; void interrupt SerialISR(void)
