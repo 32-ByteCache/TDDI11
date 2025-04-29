@@ -26,15 +26,13 @@ SerialPut:
 		mov EBP, ESP
 	
 	CHECK_THRE:
-		mov EAX, [LSR_PORT] ; Read LSR port
+		in EAX, [LSR_PORT] ; Read LSR port
+		shr EAX, 6
 
-		shr EAX, 5
-		and EAX, 1
-
-		jnz CHECK_THRE ; Jump to start if THRE not set
+		jnc CHECK_THRE ; Jump to start if THRE not set
 
 		mov EAX, [EBP + 8] ; load ch into EAX
-		mov [THR_PORT], EAX
+		out [THR_PORT], EAX
 	
 		pop EBP
 		pop EAX
