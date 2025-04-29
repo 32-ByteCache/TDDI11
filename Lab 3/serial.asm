@@ -21,21 +21,22 @@ THR_PORT	EQU	BASE_PORT
 		GLOBAL	SerialPut
 
 SerialPut:	
-		push EAX
-		push EBP
+
+		push EBP 
 		mov EBP, ESP
 	
-	CHECK_THRE:
-		in EAX, [LSR_PORT] ; Read LSR port
-		shr EAX, 6
-
+CHECK_THRE:
+		mov DX, LSR_PORT
+		in AL, DX ; Read LSR port
+		shr AL, 6
+		
 		jnc CHECK_THRE ; Jump to start if THRE not set
 
-		mov EAX, [EBP + 8] ; load ch into EAX
-		out [THR_PORT], EAX
-	
+		mov AL, [EBP + 8] ; load ch into AL
+		mov DX, THR_PORT
+		out DX, AL
+
 		pop EBP
-		pop EAX
 		ret
 
 ; ---------------------------------------------------------------------
@@ -50,16 +51,34 @@ SerialPut:
 
 SerialISR:	STI             	; Enable (higher-priority) IRQs 
 
-		; <your code here>	; (1) Preserve all registers 
-		; <your code here>	; (2) Get character from UART
-		; <your code here>	; (3) Put character into queue 
-		; <your code here>	; Param #2: address of data
-		; <your code here>	; Param #1: address of queue
+		pusha
+
+		mov DX, LSR_PORT
+		in AL, DX
+		shr AL, 1
+		jnc END_OF_INTERRUPT
+
+		mov DX, RBR_PORT
+		in AL, DX
+		mov [data], AL
+		push data
+		push dword [inbound_queue]
+
 
 		CALL	QueueInsert
 		ADD	ESP,8
 
-_Eoi:		; <your code here>	; (4) Enable lower priority interrupts
+END_OF_INTERRUPT:
+		mov AL, 0x20
+		mov DX, 0x20
+		out DX, AL
+		sti
+		
+		popa
+		iret
+
+
+		; <your code here>	; (4) Enable lower priority interrupts
 		; <your code here>	;       (Send Non-Specific EOI to PIC)
 		; <your code here>	; (5) Restore all registers
 		; <your code here>	; (6) Return to interrupted code

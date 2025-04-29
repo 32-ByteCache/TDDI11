@@ -63,7 +63,7 @@ void cllmultiply(unsigned long long int l1, unsigned long long int l2, unsigned 
   unsigned long long int b_low = (unsigned long int)l2; 
   unsigned long long int b_high = (l2 >> 32);
 
-  unsigned long int *res_ptr = result;
+  unsigned long int *res_ptr = (unsigned long int *)result;
 
   res_ptr[0] = 0;
   res_ptr[1] = 0;

@@ -68,7 +68,7 @@ LOAD /courses/TDDI11/sw/lib/elf/libepc.a
 LOAD /courses/TDDI11/sw/lib/elf/djgpp/libc.a
 LOAD /courses/TDDI11/sw/i386-elf-gcc-7.3.0/lib/gcc/i386-elf/7.3.0/libgcc.a
 
-.text           0x0000000000000000     0x2708
+.text           0x0000000000000000     0x272c
                 0x0000000000000000                text_frst = .
  *(.start)
  .start         0x0000000000000000        0x8 /courses/TDDI11/sw/lib/elf/libepc.a(init-cpu.o)
@@ -79,160 +79,160 @@ LOAD /courses/TDDI11/sw/i386-elf-gcc-7.3.0/lib/gcc/i386-elf/7.3.0/libgcc.a
                 0x0000000000000008                main
                 0x0000000000000062                InitSerial
  *fill*         0x0000000000000125        0xb 
- .text          0x0000000000000130       0x25 serial.o
+ .text          0x0000000000000130       0x49 serial.o
                 0x0000000000000130                SerialPut
-                0x000000000000014c                SerialISR
- .text          0x0000000000000155       0x60 inbound.o
-                0x0000000000000155                InitInBound
-                0x000000000000017b                InBound
- .text          0x00000000000001b5       0xea outbound.o
-                0x00000000000001b5                InitOutBound
-                0x00000000000001db                OutBound
- *fill*         0x000000000000029f        0x1 
- .text          0x00000000000002a0       0x50 /courses/TDDI11/sw/lib/elf/libepc.a(init-cpu.o)
-                0x00000000000002a0                Init_CPU
- .text          0x00000000000002f0      0x5a0 /courses/TDDI11/sw/lib/elf/libepc.a(init-idt.o)
-                0x0000000000000700                IRQ2INT
-                0x0000000000000714                _GetISR
-                0x0000000000000758                SetISR
-                0x0000000000000790                Init_IDT
- .text          0x0000000000000890      0x110 /courses/TDDI11/sw/lib/elf/libepc.a(init-crt.o)
-                0x0000000000000890                Init_CRT
-                0x00000000000008c4                _LastMemoryAddress
- .text          0x00000000000009a0      0x6e0 /courses/TDDI11/sw/lib/elf/libepc.a(display.o)
-                0x00000000000009a0                SetCursorVisible
-                0x0000000000000a24                _GetCursorRow
-                0x0000000000000a38                _GetCursorCol
-                0x0000000000000a4c                SetCursorPosition
-                0x0000000000000af0                ClearScreen
-                0x0000000000000b58                _PutAttb
-                0x0000000000000ba4                _PutCharAt
-                0x0000000000000bd0                _PutChar
-                0x0000000000000c54                PutString
-                0x0000000000000c8c                PutUnsigned
-                0x0000000000000cc4                FormatUnsigned
-                0x0000000000000d54                Unsigned2Ascii
-                0x0000000000000dd8                _Cell
- .text          0x0000000000001080       0xe0 /courses/TDDI11/sw/lib/elf/libepc.a(init8259.o)
-                0x0000000000001080                Init8259
- .text          0x0000000000001160       0xb0 /courses/TDDI11/sw/lib/elf/libepc.a(init8253.o)
-                0x0000000000001160                Init8253
- .text          0x0000000000001210      0x180 /courses/TDDI11/sw/lib/elf/libepc.a(queue.o)
-                0x0000000000001210                QueueCreate
-                0x000000000000127c                QueueRemove
-                0x0000000000001300                QueueInsert
- .text          0x0000000000001390      0x600 /courses/TDDI11/sw/lib/elf/libepc.a(window.o)
-                0x0000000000001394                WindowCreate
-                0x000000000000147c                _WindowErase
-                0x00000000000014ec                WindowSelect
-                0x0000000000001510                WindowSetCursor
-                0x0000000000001540                WindowPutChar
-                0x0000000000001620                WindowPutString
- .text          0x0000000000001990       0x98 /courses/TDDI11/sw/lib/elf/libepc.a(checkcpu.o)
-                0x0000000000001990                Check_CPU
- .text          0x0000000000001a28       0x60 /courses/TDDI11/sw/lib/elf/libepc.a(io.o)
-                0x0000000000001a28                TimerTickISR
-                0x0000000000001a34                KeyboardISR
-                0x0000000000001a54                ISR_PIC1
-                0x0000000000001a5b                ISR_PIC2
-                0x0000000000001a64                ___main
-                0x0000000000001a65                inportb
-                0x0000000000001a6f                outportb
-                0x0000000000001a81                _exit
- .text          0x0000000000001a88      0x570 /courses/TDDI11/sw/lib/elf/libepc.a(keyboard.o)
-                0x0000000000001a88                ScanCodeRdy
-                0x0000000000001aac                GetScanCode
-                0x0000000000001adc                ScanCode2Ascii
-                0x0000000000001c9c                SetsKybdState
-                0x0000000000001e8c                Enqueue
- .text          0x0000000000001ff8      0x660 /courses/TDDI11/sw/lib/elf/libepc.a(heap.o)
-                0x0000000000001ff8                malloc
-                0x00000000000020ac                free
- .text          0x0000000000002658        0x0 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(ct_flags.o)
- .text          0x0000000000002658       0x1c /courses/TDDI11/sw/lib/elf/djgpp/libc.a(memcpy.o)
-                0x0000000000002658                _memcpy
- .text          0x0000000000002674       0x28 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(strcpy.o)
-                0x0000000000002674                _strcpy
- .text          0x000000000000269c       0x24 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(strlen.o)
-                0x000000000000269c                _strlen
- .text          0x00000000000026c0       0x10 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(disable.o)
-                0x00000000000026c0                disable
- .text          0x00000000000026d0       0x10 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(enable.o)
-                0x00000000000026d0                enable
- .text          0x00000000000026e0       0x28 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(djmd.o)
-                0x00000000000026e0                ___dj_movedata
-                0x0000000000002707                text_last = (. - 0x1)
+                0x0000000000000147                SerialISR
+ .text          0x0000000000000179       0x60 inbound.o
+                0x0000000000000179                InitInBound
+                0x000000000000019f                InBound
+ .text          0x00000000000001d9       0xea outbound.o
+                0x00000000000001d9                InitOutBound
+                0x00000000000001ff                OutBound
+ *fill*         0x00000000000002c3        0x1 
+ .text          0x00000000000002c4       0x50 /courses/TDDI11/sw/lib/elf/libepc.a(init-cpu.o)
+                0x00000000000002c4                Init_CPU
+ .text          0x0000000000000314      0x5a0 /courses/TDDI11/sw/lib/elf/libepc.a(init-idt.o)
+                0x0000000000000724                IRQ2INT
+                0x0000000000000738                _GetISR
+                0x000000000000077c                SetISR
+                0x00000000000007b4                Init_IDT
+ .text          0x00000000000008b4      0x110 /courses/TDDI11/sw/lib/elf/libepc.a(init-crt.o)
+                0x00000000000008b4                Init_CRT
+                0x00000000000008e8                _LastMemoryAddress
+ .text          0x00000000000009c4      0x6e0 /courses/TDDI11/sw/lib/elf/libepc.a(display.o)
+                0x00000000000009c4                SetCursorVisible
+                0x0000000000000a48                _GetCursorRow
+                0x0000000000000a5c                _GetCursorCol
+                0x0000000000000a70                SetCursorPosition
+                0x0000000000000b14                ClearScreen
+                0x0000000000000b7c                _PutAttb
+                0x0000000000000bc8                _PutCharAt
+                0x0000000000000bf4                _PutChar
+                0x0000000000000c78                PutString
+                0x0000000000000cb0                PutUnsigned
+                0x0000000000000ce8                FormatUnsigned
+                0x0000000000000d78                Unsigned2Ascii
+                0x0000000000000dfc                _Cell
+ .text          0x00000000000010a4       0xe0 /courses/TDDI11/sw/lib/elf/libepc.a(init8259.o)
+                0x00000000000010a4                Init8259
+ .text          0x0000000000001184       0xb0 /courses/TDDI11/sw/lib/elf/libepc.a(init8253.o)
+                0x0000000000001184                Init8253
+ .text          0x0000000000001234      0x180 /courses/TDDI11/sw/lib/elf/libepc.a(queue.o)
+                0x0000000000001234                QueueCreate
+                0x00000000000012a0                QueueRemove
+                0x0000000000001324                QueueInsert
+ .text          0x00000000000013b4      0x600 /courses/TDDI11/sw/lib/elf/libepc.a(window.o)
+                0x00000000000013b8                WindowCreate
+                0x00000000000014a0                _WindowErase
+                0x0000000000001510                WindowSelect
+                0x0000000000001534                WindowSetCursor
+                0x0000000000001564                WindowPutChar
+                0x0000000000001644                WindowPutString
+ .text          0x00000000000019b4       0x98 /courses/TDDI11/sw/lib/elf/libepc.a(checkcpu.o)
+                0x00000000000019b4                Check_CPU
+ .text          0x0000000000001a4c       0x60 /courses/TDDI11/sw/lib/elf/libepc.a(io.o)
+                0x0000000000001a4c                TimerTickISR
+                0x0000000000001a58                KeyboardISR
+                0x0000000000001a78                ISR_PIC1
+                0x0000000000001a7f                ISR_PIC2
+                0x0000000000001a88                ___main
+                0x0000000000001a89                inportb
+                0x0000000000001a93                outportb
+                0x0000000000001aa5                _exit
+ .text          0x0000000000001aac      0x570 /courses/TDDI11/sw/lib/elf/libepc.a(keyboard.o)
+                0x0000000000001aac                ScanCodeRdy
+                0x0000000000001ad0                GetScanCode
+                0x0000000000001b00                ScanCode2Ascii
+                0x0000000000001cc0                SetsKybdState
+                0x0000000000001eb0                Enqueue
+ .text          0x000000000000201c      0x660 /courses/TDDI11/sw/lib/elf/libepc.a(heap.o)
+                0x000000000000201c                malloc
+                0x00000000000020d0                free
+ .text          0x000000000000267c        0x0 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(ct_flags.o)
+ .text          0x000000000000267c       0x1c /courses/TDDI11/sw/lib/elf/djgpp/libc.a(memcpy.o)
+                0x000000000000267c                _memcpy
+ .text          0x0000000000002698       0x28 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(strcpy.o)
+                0x0000000000002698                _strcpy
+ .text          0x00000000000026c0       0x24 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(strlen.o)
+                0x00000000000026c0                _strlen
+ .text          0x00000000000026e4       0x10 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(disable.o)
+                0x00000000000026e4                disable
+ .text          0x00000000000026f4       0x10 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(enable.o)
+                0x00000000000026f4                enable
+ .text          0x0000000000002704       0x28 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(djmd.o)
+                0x0000000000002704                ___dj_movedata
+                0x000000000000272b                text_last = (. - 0x1)
 
-.data           0x0000000000002708      0x8c1
-                0x0000000000002708                data_frst = .
+.data           0x000000000000272c      0x8c1
+                0x000000000000272c                data_frst = .
  *(.data)
- .data          0x0000000000002708        0x0 main.o
- .data          0x0000000000002708        0x1 serial.o
- .data          0x0000000000002709        0x0 inbound.o
- .data          0x0000000000002709        0x0 outbound.o
- *fill*         0x0000000000002709        0x3 
- .data          0x000000000000270c       0x20 /courses/TDDI11/sw/lib/elf/libepc.a(init-cpu.o)
-                0x000000000000272a                code_selector
- .data          0x000000000000272c       0x90 /courses/TDDI11/sw/lib/elf/libepc.a(init-idt.o)
- .data          0x00000000000027bc       0x10 /courses/TDDI11/sw/lib/elf/libepc.a(init-crt.o)
- .data          0x00000000000027cc       0x30 /courses/TDDI11/sw/lib/elf/libepc.a(display.o)
- .data          0x00000000000027fc        0x0 /courses/TDDI11/sw/lib/elf/libepc.a(init8259.o)
- .data          0x00000000000027fc        0x0 /courses/TDDI11/sw/lib/elf/libepc.a(init8253.o)
- .data          0x00000000000027fc        0x0 /courses/TDDI11/sw/lib/elf/libepc.a(queue.o)
- .data          0x00000000000027fc        0x0 /courses/TDDI11/sw/lib/elf/libepc.a(window.o)
- .data          0x00000000000027fc        0xc /courses/TDDI11/sw/lib/elf/libepc.a(io.o)
-                0x00000000000027fc                msec
-                0x0000000000002800                old_tick_isr
-                0x0000000000002804                old_kybd_isr
- .data          0x0000000000002808      0x5a0 /courses/TDDI11/sw/lib/elf/libepc.a(keyboard.o)
- .data          0x0000000000002da8       0x10 /courses/TDDI11/sw/lib/elf/libepc.a(heap.o)
- .data          0x0000000000002db8      0x204 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(ct_flags.o)
-                0x0000000000002db8                __dj_ctype_flags
- .data          0x0000000000002fbc        0x0 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(memcpy.o)
- .data          0x0000000000002fbc        0x0 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(strcpy.o)
- .data          0x0000000000002fbc        0x0 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(strlen.o)
- .data          0x0000000000002fbc        0x0 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(disable.o)
- .data          0x0000000000002fbc        0x0 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(enable.o)
- .data          0x0000000000002fbc        0x0 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(djmd.o)
+ .data          0x000000000000272c        0x0 main.o
+ .data          0x000000000000272c        0x1 serial.o
+ .data          0x000000000000272d        0x0 inbound.o
+ .data          0x000000000000272d        0x0 outbound.o
+ *fill*         0x000000000000272d        0x3 
+ .data          0x0000000000002730       0x20 /courses/TDDI11/sw/lib/elf/libepc.a(init-cpu.o)
+                0x000000000000274e                code_selector
+ .data          0x0000000000002750       0x90 /courses/TDDI11/sw/lib/elf/libepc.a(init-idt.o)
+ .data          0x00000000000027e0       0x10 /courses/TDDI11/sw/lib/elf/libepc.a(init-crt.o)
+ .data          0x00000000000027f0       0x30 /courses/TDDI11/sw/lib/elf/libepc.a(display.o)
+ .data          0x0000000000002820        0x0 /courses/TDDI11/sw/lib/elf/libepc.a(init8259.o)
+ .data          0x0000000000002820        0x0 /courses/TDDI11/sw/lib/elf/libepc.a(init8253.o)
+ .data          0x0000000000002820        0x0 /courses/TDDI11/sw/lib/elf/libepc.a(queue.o)
+ .data          0x0000000000002820        0x0 /courses/TDDI11/sw/lib/elf/libepc.a(window.o)
+ .data          0x0000000000002820        0xc /courses/TDDI11/sw/lib/elf/libepc.a(io.o)
+                0x0000000000002820                msec
+                0x0000000000002824                old_tick_isr
+                0x0000000000002828                old_kybd_isr
+ .data          0x000000000000282c      0x5a0 /courses/TDDI11/sw/lib/elf/libepc.a(keyboard.o)
+ .data          0x0000000000002dcc       0x10 /courses/TDDI11/sw/lib/elf/libepc.a(heap.o)
+ .data          0x0000000000002ddc      0x204 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(ct_flags.o)
+                0x0000000000002ddc                __dj_ctype_flags
+ .data          0x0000000000002fe0        0x0 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(memcpy.o)
+ .data          0x0000000000002fe0        0x0 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(strcpy.o)
+ .data          0x0000000000002fe0        0x0 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(strlen.o)
+ .data          0x0000000000002fe0        0x0 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(disable.o)
+ .data          0x0000000000002fe0        0x0 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(enable.o)
+ .data          0x0000000000002fe0        0x0 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(djmd.o)
  *(.rodata)
- .rodata        0x0000000000002fbc        0x7 inbound.o
- .rodata        0x0000000000002fc3        0x6 outbound.o
+ .rodata        0x0000000000002fe0        0x7 inbound.o
+ .rodata        0x0000000000002fe7        0x6 outbound.o
  *(.rodata.str1.1)
  *(.rodata.str1.32)
-                0x0000000000002fc8                data_last = (. - 0x1)
+                0x0000000000002fec                data_last = (. - 0x1)
 
-.bss            0x0000000000002fcc      0x848
-                0x0000000000002fcc                bss_frst = .
+.bss            0x0000000000002ff0      0x848
+                0x0000000000002ff0                bss_frst = .
  *(.bss)
- .bss           0x0000000000002fcc        0x0 main.o
- .bss           0x0000000000002fcc        0x4 inbound.o
- .bss           0x0000000000002fd0        0x4 outbound.o
- .bss           0x0000000000002fd4      0x800 /courses/TDDI11/sw/lib/elf/libepc.a(init-idt.o)
- .bss           0x00000000000037d4        0x0 /courses/TDDI11/sw/lib/elf/libepc.a(init-crt.o)
- .bss           0x00000000000037d4        0x8 /courses/TDDI11/sw/lib/elf/libepc.a(display.o)
- .bss           0x00000000000037dc        0x0 /courses/TDDI11/sw/lib/elf/libepc.a(init8259.o)
- .bss           0x00000000000037dc        0x0 /courses/TDDI11/sw/lib/elf/libepc.a(init8253.o)
- .bss           0x00000000000037dc        0x0 /courses/TDDI11/sw/lib/elf/libepc.a(queue.o)
- .bss           0x00000000000037dc        0x0 /courses/TDDI11/sw/lib/elf/libepc.a(window.o)
- .bss           0x00000000000037dc       0x34 /courses/TDDI11/sw/lib/elf/libepc.a(keyboard.o)
- .bss           0x0000000000003810        0x0 /courses/TDDI11/sw/lib/elf/libepc.a(heap.o)
- .bss           0x0000000000003810        0x0 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(ct_flags.o)
- .bss           0x0000000000003810        0x0 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(memcpy.o)
- .bss           0x0000000000003810        0x0 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(strcpy.o)
- .bss           0x0000000000003810        0x0 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(strlen.o)
- .bss           0x0000000000003810        0x0 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(disable.o)
- .bss           0x0000000000003810        0x0 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(enable.o)
- .bss           0x0000000000003810        0x0 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(djmd.o)
+ .bss           0x0000000000002ff0        0x0 main.o
+ .bss           0x0000000000002ff0        0x4 inbound.o
+ .bss           0x0000000000002ff4        0x4 outbound.o
+ .bss           0x0000000000002ff8      0x800 /courses/TDDI11/sw/lib/elf/libepc.a(init-idt.o)
+ .bss           0x00000000000037f8        0x0 /courses/TDDI11/sw/lib/elf/libepc.a(init-crt.o)
+ .bss           0x00000000000037f8        0x8 /courses/TDDI11/sw/lib/elf/libepc.a(display.o)
+ .bss           0x0000000000003800        0x0 /courses/TDDI11/sw/lib/elf/libepc.a(init8259.o)
+ .bss           0x0000000000003800        0x0 /courses/TDDI11/sw/lib/elf/libepc.a(init8253.o)
+ .bss           0x0000000000003800        0x0 /courses/TDDI11/sw/lib/elf/libepc.a(queue.o)
+ .bss           0x0000000000003800        0x0 /courses/TDDI11/sw/lib/elf/libepc.a(window.o)
+ .bss           0x0000000000003800       0x34 /courses/TDDI11/sw/lib/elf/libepc.a(keyboard.o)
+ .bss           0x0000000000003834        0x0 /courses/TDDI11/sw/lib/elf/libepc.a(heap.o)
+ .bss           0x0000000000003834        0x0 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(ct_flags.o)
+ .bss           0x0000000000003834        0x0 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(memcpy.o)
+ .bss           0x0000000000003834        0x0 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(strcpy.o)
+ .bss           0x0000000000003834        0x0 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(strlen.o)
+ .bss           0x0000000000003834        0x0 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(disable.o)
+ .bss           0x0000000000003834        0x0 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(enable.o)
+ .bss           0x0000000000003834        0x0 /courses/TDDI11/sw/lib/elf/djgpp/libc.a(djmd.o)
  *(COMMON)
- COMMON         0x0000000000003810        0x4 main.o
-                0x0000000000003810                inbound_queue
-                0x0000000000003813                bss_last = (. - 0x1)
+ COMMON         0x0000000000003834        0x4 main.o
+                0x0000000000003834                inbound_queue
+                0x0000000000003837                bss_last = (. - 0x1)
 
 /DISCARD/
  *(.eh_frame)
-                0x0000000000003814                stack_frst = (bss_last + 0x1)
-                0x000000000000b813                stack_last = (bss_last + 0x8000)
-                0x000000000000b814                heap_frst = (stack_last + 0x1)
+                0x0000000000003838                stack_frst = (bss_last + 0x1)
+                0x000000000000b837                stack_last = (bss_last + 0x8000)
+                0x000000000000b838                heap_frst = (stack_last + 0x1)
 OUTPUT(embedded.bin binary)
 
 .debug_info     0x0000000000000000      0x4a9
