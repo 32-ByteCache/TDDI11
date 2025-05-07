@@ -63,7 +63,7 @@ void cllmultiply(unsigned long long int l1, unsigned long long int l2, unsigned 
   unsigned long long int b_low = (unsigned long int)l2; 
   unsigned long long int b_high = (l2 >> 32);
 
-  unsigned long int *res_ptr = result;
+  unsigned long int *res_ptr = (unsigned long int *)result;
 
   res_ptr[0] = 0;
   res_ptr[1] = 0;
@@ -135,6 +135,8 @@ int main(int argc, char *argv[])
   ClearScreen(0x07);
   SetCursorPosition(0, 0);
 
+  Milliseconds();
+
   for (i = 0; i < 6; ++i)
   {
     PutString("Test : ");
@@ -157,6 +159,8 @@ int main(int argc, char *argv[])
     
     PutString("\r\n");
   }
+  PutString("Time: ");
+  PutUnsigned(Milliseconds(), 10, 10);
 
   return 0;
 }
